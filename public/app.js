@@ -27,8 +27,9 @@ app.controller('submitController',['$scope','$location','$routeParams',function(
             })
         })
         const json = await response.json();
+        console.log(json);
         if(json.slug){
-            $scope.created = `Your shorten url is ${absUrl}${json.slug}`
+            $scope.result = `Your shorten url is ${absUrl}${json.slug}`
         }else{
             $scope.result = json.message;
         }
