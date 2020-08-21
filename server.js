@@ -32,7 +32,7 @@ app.get('/:id',async (req,res)=>{
         if(url){
             res.redirect(url.url);
         }
-        res.redirect(`/?error=${slug} not found`)
+        res.redirect(`/?error=slug named ${slug} not found`)
     } catch (error) {
         res.redirect(`/?error=link not found`)
     }
@@ -43,14 +43,14 @@ app.get('/:id',async (req,res)=>{
 app.post('/url',async (req,res,next)=>{
     let {slug , url} = req.body;
     try {
-        await schema.validate({
-            slug,
-            url
-        })
         if(!slug){
             slug = nanoid(5);
         }
         slug = slug.toLowerCase();
+        await schema.validate({
+            slug,
+            url
+        })
         const newUrl = {
             slug,
             url

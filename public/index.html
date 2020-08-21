@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uri.tr</title>
+    <link rel="stylesheet" href="./styles.css"/>
 </head>
 <body>
-    <h1>uri.tr - We shortener your urls for you </h1>
+    <header>
+        <h1>uri.tr - We shorten your urls for you </h1>
+    </header>
+    <main ng-app="app">
+        <form ng-controller="submitController" ng-submit="createUrl()">
+            <label for="url">Url</label>
+            <input type="text" name="url" ng-model="url"/>
+            <label for="slug">Slug</label>
+            <input type="text" name="slug" ng-model="slug"/>
+            <button type="submit">Create</button>
+            <pre ng-if="result" ng-cloak>
+                {{result}}
+            </pre>
+        </form>
+        
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.0/angular-route.min.js"></script>
+    <script src="/app.js"></script>
 </body>
 </html>
