@@ -1,7 +1,7 @@
 var app = angular.module('app',['ngRoute']);
 
 app.controller('submitController',['$scope','$location','$routeParams',function($scope,$location,$routeParams){
-    const absUrl = `${$location.$$protocol}://${$location.$$host}:${$location.$$port}/`
+    const absUrl = `${$location.$$protocol}://${$location.$$host}/`
     const error = getParam('error');
     $scope.url = '';
     $scope.slug = '';
